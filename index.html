@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gokul Vet Care - Livestock Care Products</title>
+    <link rel="stylesheet" href="styles.css">
+
+     <!-- Main Favicon (for most browsers) -->
+    <link rel="icon" type="image/png" href="websiteFevicon.png">
+    <link rel="apple-touch-icon" href="WebSiteLogo.png">
+    
+    <!-- For Apple devices (iPhone, iPad) -->
+    <link rel="apple-touch-icon" href="WebSiteLogo.png">
+    
+    <!-- For Android Chrome -->
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#fbbf24">
+    
+    <!-- Your existing stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    
+</head>
+<body>
+
+    <!-- Loding Screen-->
+     <div id="loading-screen">
+    <div class="loading-logo-container">
+        <img src="WebSiteLogo.png" alt="Gokul Vet Care" class="loading-logo">
+    </div>
+    <div class="loading-spinner-container">
+        <div class="spinner"></div>
+        <div class="loading-text">Gokul Vet Care</div>
+        <div class="loading-subtitle">Loading your livestock care solutions...</div>
+    </div>
+</div>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo" onclick="showPage('home')">
+                    <div class="logo-icon">
+                        <img class="logo-icon" src="WebSiteLogo.png" alt="Gokul Vet Care">
+                    </div>
+                    <div>
+                        <h1 class="logo-title">Gokul Vet Care</h1>
+                        <p class="logo-subtitle">Natural Care for Healthy Cattle</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="desktop-nav">
+                    <button onclick="showPage('home')" class="nav-link" data-page="home">Home</button>
+                    <button onclick="showPage('about')" class="nav-link" data-page="about">About Us</button>
+                    <button onclick="showPage('contact')" class="nav-link" data-page="contact">Contact</button>
+                    <a href="https://wa.me/918008425005" target="_blank" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <button onclick="toggleAdminLogin()" class="btn-admin" id="adminBtn">
+                        <i class="fas fa-lock"></i> Admin
+                    </button>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <span id="menuIcon">☰</span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <nav class="mobile-nav" id="mobileNav">
+                <button onclick="showPage('home'); toggleMobileMenu()">
+                    <i class="fas fa-home"></i> Home
+                </button>
+                <button onclick="showPage('about'); toggleMobileMenu()">
+                    <i class="fas fa-info-circle"></i> About Us
+                </button>
+                <button onclick="showPage('contact'); toggleMobileMenu()">
+                    <i class="fas fa-envelope"></i> Contact
+                </button>
+                <a href="https://wa.me/918008425005" target="_blank" class="whatsapp-btn-mobile">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <button onclick="toggleAdminLogin(); toggleMobileMenu()" class="btn-admin-mobile" id="adminBtnMobile">
+                    <i class="fas fa-lock"></i> Admin Login
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/918008425005?text=Hello%20Gokul%20Vet%20Care!%20I%20would%20like%20to%20know%20more%20about%20your%20products." 
+       target="_blank" 
+       class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Admin Login Modal -->
+    <div class="modal" id="adminModal">
+        <div class="modal-content">
+            <h2><i class="fas fa-user-shield"></i> Admin Login</h2>
+            <input type="password" id="adminPassword" placeholder="Enter admin password" onkeypress="handleEnterKey(event)">
+            <div class="modal-actions">
+                <button onclick="handleAdminLogin()" class="btn-primary">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                <button onclick="closeAdminModal()" class="btn-secondary">
+                    <i class="fas fa-times"></i> Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Home Page -->
+    <div id="homePage" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="hero-badge">
+                            <i class="fas fa-certificate"></i> Veterinarian Approved
+                        </div>
+                        <h1 class="hero-title">
+                            <span class="hindi-text">गोकुल की विरासत</span>
+                            <span class="hindi-text">हर पशु की हिफाज़त</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            <i class="fas fa-leaf"></i> Premium Livestock Feed Supplements
+                        </p>
+                        <p class="hero-description">
+                            100% Natural & Safe formulations backed by veterinary science for the optimal health of your cattle.
+                        </p>
+                        <div class="hero-buttons">
+                            <button class="btn-hero btn-primary-hero" onclick="scrollToProducts()">
+                                <i class="fas fa-shopping-bag"></i> Explore Products
+                            </button>
+                            <a href="https://wa.me/918008425005?text=Hello%20Gokul%20Vet%20Care!%20I%20would%20like%20to%20know%20more." 
+                               target="_blank" 
+                               class="btn-hero btn-secondary-hero">
+                                <i class="fab fa-whatsapp"></i> Contact Us
+                            </a>
+                        </div>
+                        <div class="hero-features">
+                            <div class="hero-feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>100% Natural</span>
+                            </div>
+                            <div class="hero-feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Scientifically Tested</span>
+                            </div>
+                            <div class="hero-feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Trusted Quality</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="hero-image-wrapper">
+                            <img src="PannelImage.png" alt="Livestock Products">
+                            <div class="hero-image-badge">
+                                <i class="fas fa-star"></i>
+                                <span>Premium Quality</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-wave">
+                <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z" fill="#f9fafb"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products-section" id="productsSection">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Premium Products</h2>
+                    <p class="section-subtitle">High-quality livestock supplements for optimal health</p>
+                </div>
+
+                <!-- Admin Add Product Form -->
+                <div class="admin-form" id="adminForm" style="display: none;">
+                    <h3 class="form-title">
+                        <span id="formIcon">➕</span>
+                        <span id="formTitleText">Add New Product</span>
+                    </h3>
+                    <div class="form-grid">
+                        <input type="text" id="productName" placeholder="Product Name *" class="full-width">
+                        <input type="text" id="productVolume" placeholder="Package Size (e.g., 1kg, 500g)">
+                        <input type="number" id="productPrice" placeholder="Price *">
+                        <input type="number" id="productOriginalPrice" placeholder="Original Price">
+                        
+                        <!-- Main Image Upload -->
+                        <div class="full-width">
+                            <label class="file-upload-label">📸 Main Product Image *</label>
+                            <input type="file" id="productImage" accept="image/*" class="file-input" onchange="previewMainImage(event)">
+                            <div id="mainImagePreview" class="image-preview"></div>
+                        </div>
+
+                        <!-- Label Image Upload -->
+                        <div class="full-width">
+                            <label class="file-upload-label">🏷️ Product Label Image (Nutritional Info) *</label>
+                            <input type="file" id="labelImage" accept="image/*" class="file-input" onchange="previewLabelImage(event)">
+                            <div id="labelImagePreview" class="image-preview"></div>
+                        </div>
+                        
+                        <input type="text" id="productTag" placeholder="Tag (e.g., Veterinarian Approved)" class="full-width">
+                        <textarea id="productDescription" placeholder="Product Description" rows="3" class="full-width"></textarea>
+                        <input type="text" id="productFeatures" placeholder="Features (comma separated)" class="full-width">
+                        
+                        <!-- Additional Images Upload -->
+                        <div class="full-width">
+                            <label class="file-upload-label">📷 Additional Product Images (Optional)</label>
+                            <input type="file" id="productImages" accept="image/*" multiple class="file-input" onchange="previewAdditionalImages(event)">
+                            <div id="additionalImagesPreview" class="images-preview-grid"></div>
+                        </div>
+                        
+                        <!-- Composition/Nutritional Information -->
+                        <div class="full-width nutrition-section">
+                            <h4>📋 Composition (Per 100 ml/gram)</h4>
+                            <div class="nutrition-grid">
+                                <input type="text" id="calcium" placeholder="Calcium (e.g., 9000 mg)">
+                                <input type="text" id="phosphorus" placeholder="Phosphorus (e.g., 4500 mg)">
+                                <input type="text" id="vitaminA" placeholder="Vitamin A (e.g., 15000 I.U)">
+                                <input type="text" id="vitaminB12" placeholder="Vitamin B12 (e.g., 100 mcg)">
+                                <input type="text" id="vitaminD3" placeholder="Vitamin D3 (e.g., 14000 I.U)">
+                                <input type="text" id="vitaminH" placeholder="Vitamin H (e.g., 20 mg)">
+                                <input type="text" id="chChromium" placeholder="Ch. Chromium (e.g., 10 mg)">
+                                <input type="text" id="chCobalt" placeholder="Ch. Cobalt (e.g., 5 mg)">
+                                <input type="text" id="chCopper" placeholder="Ch. Copper (e.g., 500 mg)">
+                                <input type="text" id="iodine" placeholder="Iodine (e.g., 10 mg)">
+                                <input type="text" id="potassium" placeholder="Potassium (e.g., 18 mg)">
+                                <input type="text" id="jivanti" placeholder="Jivanti (e.g., 1000 mg)">
+                                <input type="text" id="shatavari" placeholder="Shatavari (e.g., 1000 mg)">
+                                <input type="text" id="wheatLecithin" placeholder="Wheat Lecithin (e.g., 40 mg)">
+                                <input type="text" id="dextrose" placeholder="Dextrose (e.g., 30%)">
+                                <input type="text" id="herbalExtracts" placeholder="Herbal Extracts (e.g., Q.S)" class="full-width">
+                                <input type="text" id="color" placeholder="Color (e.g., Erythrosin)" class="full-width">
+                            </div>
+                        </div>
+
+                        <!-- Dosage Information -->
+                        <div class="full-width nutrition-section">
+                            <h4>💊 Dosage Information</h4>
+                            <div class="nutrition-grid">
+                                <input type="text" id="cowBuffaloDose" placeholder="Cow/Buffalo (e.g., 100-200 ml/day)">
+                                <input type="text" id="sheepGoatDose" placeholder="Calf/Sheep/Pig (e.g., 20-30 ml/day)">
+                                <input type="text" id="dogCatDose" placeholder="Dog/Cat (e.g., 10-20 ml/day)">
+                                <textarea id="dosageNote" placeholder="Additional dosage instructions or notes" rows="2" class="full-width"></textarea>
+                            </div>
+                        </div>
+                        
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="productInStock" checked>
+                            <span>In Stock</span>
+                        </label>
+                    </div>
+                    <div class="form-actions">
+                        <button onclick="handleProductSubmit()" class="btn-primary" id="submitBtn">
+                            <i class="fas fa-plus"></i> Add Product
+                        </button>
+                        <button onclick="cancelEdit()" class="btn-secondary" id="cancelBtn" style="display: none;">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="productsGrid">
+                    <div class="empty-state">
+                        <i class="fas fa-box-open"></i>
+                        <p class="empty-title">No products available yet</p>
+                        <p class="empty-subtitle">Admin: Login to add your first product</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Why Choose Us</h2>
+                    <p class="section-subtitle">Trusted by thousands of livestock owners across India</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>100% Safe</h3>
+                        <p>Veterinarian approved and tested formulations</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Natural Ingredients</h3>
+                        <p>Herbal extracts and natural supplements</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>Scientifically Formulated</h3>
+                        <p>Research-backed nutritional composition</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Premium Quality</h3>
+                        <p>Best quality guaranteed for your livestock</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Product Detail Page -->
+    <div id="productDetailPage" class="page">
+        <div class="container product-detail-container">
+            <button onclick="showPage('home')" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Products
+            </button>
+            
+            <div class="product-detail-grid">
+                <!-- Product Images -->
+                <div class="product-images-section">
+                    <div class="main-image-container">
+                        <img id="mainProductImage" src="" alt="Product">
+                    </div>
+                    <div class="thumbnail-images" id="thumbnailImages"></div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info-section">
+                    <h1 id="detailProductName" class="detail-product-name"></h1>
+                    <p id="detailProductDescription" class="detail-description"></p>
+
+                    <!-- Product Features -->
+                    <div class="detail-features" id="detailFeatures"></div>
+
+                    <!-- Pricing -->
+                    <div class="detail-pricing">
+                        <span id="detailPrice" class="detail-price"></span>
+                        <span id="detailOriginalPrice" class="detail-original-price"></span>
+                        <span id="detailVolume" class="detail-volume"></span>
+                    </div>
+
+                    <!-- WhatsApp Inquiry Button -->
+                    <button onclick="inquireProduct()" class="btn-inquiry">
+                        <i class="fab fa-whatsapp"></i> Inquire on WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tabs Section -->
+            <div class="product-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="showTab('composition')">
+                        <i class="fas fa-flask"></i> Composition
+                    </button>
+                    <button class="tab-btn" onclick="showTab('dosage')">
+                        <i class="fas fa-pills"></i> Dosage
+                    </button>
+                    <button class="tab-btn" onclick="showTab('label')">
+                        <i class="fas fa-tag"></i> Label
+                    </button>
+                    <button class="tab-btn" onclick="showTab('benefits')">
+                        <i class="fas fa-heart"></i> Benefits
+                    </button>
+                </div>
+
+                <div class="tab-content">
+                    <!-- Composition Tab -->
+                    <div id="compositionTab" class="tab-pane active">
+                        <div class="nutrition-table">
+                            <h3 class="nutrition-title">
+                                <i class="fas fa-list"></i> Composition (Each 100gram/ml contains)
+                            </h3>
+                            <table id="nutritionTable"></table>
+                        </div>
+                    </div>
+
+                    <!-- Dosage Tab -->
+                    <div id="dosageTab" class="tab-pane">
+                        <div class="tab-content-text">
+                            <h3><i class="fas fa-syringe"></i> Dosage Information</h3>
+                            <div id="dosageInfo"></div>
+                        </div>
+                    </div>
+
+                    <!-- Label Tab -->
+                    <div id="labelTab" class="tab-pane">
+                        <div class="tab-content-text">
+                            <h3><i class="fas fa-image"></i> Product Label</h3>
+                            <div id="labelImageDisplay" class="label-display">
+                                <img id="labelImageFull" src="" alt="Product Label">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Benefits Tab -->
+                    <div id="benefitsTab" class="tab-pane">
+                        <div class="tab-content-text">
+                            <h3><i class="fas fa-check-double"></i> Health Benefits</h3>
+                            <ul>
+                                <li>Supports overall animal health and vitality</li>
+                                <li>Improves milk production in dairy animals</li>
+                                <li>Enhances bone strength with essential minerals</li>
+                                <li>Boosts immunity with vitamins and minerals</li>
+                                <li>Promotes healthy growth and development</li>
+                                <li>Improves digestive health</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Page -->
+    <div id="aboutPage" class="page">
+        <div class="container content-page-container">
+            <h1 class="page-title">About Gokul Vet Care</h1>
+            <div class="about-content">
+                <img src="AboutTab.png" alt="Farm" class="page-image">
+                <div class="content-text">
+                    <p class="lead-text">
+                        Welcome to Gokul Vet Care, where we are dedicated to providing premium quality livestock feed supplements and care products. Our mission is to ensure the health and wellbeing of your animals through scientifically formulated, natural products.
+                    </p>
+                    <h2>Our Mission</h2>
+                    <p>
+                        We believe in delivering safe, effective, and veterinarian-approved products that enhance animal health and productivity. Every product is carefully formulated with natural ingredients and backed by research.
+                    </p>
+                    <h2>Quality Assurance</h2>
+                    <p>
+                        All our products undergo rigorous quality testing and are manufactured following industry best practices. We use only premium ingredients and maintain strict quality control throughout the production process.
+                    </p>
+                    <h2>Our Promise</h2>
+                    <ul>
+                        <li>100% Safe and effective products</li>
+                        <li>Natural herbal ingredients</li>
+                        <li>Veterinarian approved formulations</li>
+                        <li>Quality assured manufacturing</li>
+                        <li>Expert guidance and support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contactPage" class="page">
+        <div class="container content-page-container">
+            <h1 class="page-title">Contact Us</h1>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Address</h3>
+                            <p>Headoffice Main Market, Garh Meerpur</p>
+                            <p>Haridwar-249402</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Phone</h3>
+                            <a href="tel:+918008425005" class="contact-link">
+                                <i class="fas fa-phone"></i> +91 8008425005
+                            </a>
+                            <a href="https://wa.me/918008425005" target="_blank" class="contact-link whatsapp-link">
+                                <i class="fab fa-whatsapp"></i> WhatsApp Us
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <a href="mailto:gokulvetcare@gmail.com" class="contact-link">
+                                gokulvetcare@gmail.com
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div>
+                            <h3>Instagram</h3>
+                            <a href="https://www.instagram.com/gokulvetcare" target="_blank" class="contact-link insta-link">
+                                @gokulvetcare
+                            </a>
+                        </div>
+                    </div>
+                    <div class="business-hours">
+                        <h3><i class="fas fa-clock"></i> Business Hours</h3>
+                        <p>Monday - Saturday: 9:00 AM - 6:00 PM</p>
+                        <p>Sunday: Closed</p>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <h2>Send us a Message</h2>
+                    <div class="contact-form">
+                        <input type="text" id="contactName" placeholder="Your Name">
+                        <input type="email" id="contactEmail" placeholder="Your Email">
+                        <input type="tel" id="contactPhone" placeholder="Phone Number">
+                        <textarea id="contactMessage" rows="5" placeholder="Your Message"></textarea>
+                        <button onclick="handleContactSubmit()" class="btn-primary full-width">
+                            <i class="fab fa-whatsapp"></i> Send via WhatsApp
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Gokul Vet Care</h3>
+                    <p>Premium livestock care products made with love and scientific precision for your animals.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/gokulvetcare" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/918008425005" target="_blank" class="social-link">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><button onclick="showPage('home')"><i class="fas fa-home"></i> Home</button></li>
+                        <li><button onclick="showPage('about')"><i class="fas fa-info-circle"></i> About Us</button></li>
+                        <li><button onclick="showPage('contact')"><i class="fas fa-envelope"></i> Contact</button></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <p><i class="fas fa-envelope"></i> gokulvetcare@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +91 8008-42-5005</p>
+                    <a href="https://wa.me/918008425005" target="_blank" class="footer-whatsapp">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2021 Gokul Vet Care. All rights reserved.</p>
+                <p>Managed & Handled By Gokul Vet Care</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
